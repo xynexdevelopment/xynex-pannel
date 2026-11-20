@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+.data/
+backups/
+crash.log
+*.log
+.update.lock
+autostart.log
+.watchdog.pid
+discord-bot/.env
+discord-bot/node_modules/

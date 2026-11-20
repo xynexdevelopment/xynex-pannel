@@ -1,0 +1,147 @@
+/* ──────────────────────────────────────────────────────────────────────────
+   Admin panel — Pterodactyl (AdminLTE) look & spacing.
+   Flat rectangular "boxes" with a coloured top border, a dark left sidebar
+   with uppercase section labels, a solid coloured top bar, and a content header
+   (page title + small description + breadcrumb). Colours follow the panel's
+   accent theme (--theme-*) and dark/light tokens, so it still matches the rest.
+   Everything is scoped to .pt-admin, so no other page is affected.
+   ────────────────────────────────────────────────────────────────────────── */
+
+.pt-admin {
+  --pt-header-h: 50px;
+  --pt-side-w: 230px;
+  --pt-side-bg: #222d32;
+  --pt-side-bg-dark: #1a2226;
+  --pt-side-active-bg: #1e282c;
+  --pt-side-text: #b8c7ce;
+  --pt-side-label: #4b646f;
+  --pt-box-top: var(--theme-500);
+  --pt-gap: 15px;
+  font-size: 14px;
+  line-height: 1.42857143;
+}
+
+/* ── Top bar ─────────────────────────────────────────────────────────────── */
+.pt-header { height: var(--pt-header-h); display: flex; flex-shrink: 0; position: relative; z-index: 30; box-shadow: 0 1px 2px rgba(0,0,0,.25); }
+.pt-brand {
+  width: var(--pt-side-w); flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+  background: var(--theme-700); color: #fff; font-size: 20px; font-weight: 300; letter-spacing: .2px;
+  overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding: 0 10px;
+}
+.pt-brand b { font-weight: 700; }
+.pt-navbar { flex: 1; min-width: 0; display: flex; align-items: center; background: var(--theme-600); color: #fff; }
+.pt-navbar a, .pt-navbar button {
+  display: inline-flex; align-items: center; gap: 6px; height: var(--pt-header-h); padding: 0 15px;
+  color: rgba(255,255,255,.9); background: transparent; border: 0; cursor: pointer; font-size: 14px; transition: background .15s;
+}
+.pt-navbar a:hover, .pt-navbar button:hover { background: rgba(0,0,0,.12); color: #fff; }
+.pt-navbar .pt-spacer { flex: 1; }
+.pt-toggle { display: none !important; }
+
+/* ── Sidebar ─────────────────────────────────────────────────────────────── */
+.pt-body { flex: 1; min-height: 0; display: flex; position: relative; }
+.pt-sidebar { width: var(--pt-side-w); flex-shrink: 0; background: var(--pt-side-bg); overflow-y: auto; padding-bottom: 20px; }
+.pt-sidebar::-webkit-scrollbar { width: 4px; }
+.pt-sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,.15); }
+.pt-user { display: flex; align-items: center; gap: 10px; padding: 10px 15px; }
+.pt-user-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--theme-600); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+.pt-user-name { color: #fff; font-weight: 600; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pt-user-role { color: var(--pt-side-text); font-size: 11px; text-transform: capitalize; }
+.pt-side-label { padding: 10px 25px 10px 15px; font-size: 12px; color: var(--pt-side-label); background: var(--pt-side-bg-dark); text-transform: uppercase; }
+.pt-side-item {
+  display: flex; align-items: center; gap: 10px; width: 100%; padding: 12px 5px 12px 15px; text-align: left;
+  color: var(--pt-side-text); background: transparent; border: 0; border-left: 3px solid transparent; cursor: pointer; font-size: 14px;
+}
+.pt-side-item svg { width: 16px; height: 16px; flex-shrink: 0; }
+.pt-side-item:hover { color: #fff; }
+.pt-side-item.active { color: #fff; background: var(--pt-side-active-bg); border-left-color: var(--theme-500); }
+.pt-backdrop { display: none; }
+
+/* ── Content ─────────────────────────────────────────────────────────────── */
+.pt-main { flex: 1; min-width: 0; overflow-y: auto; background: var(--bg-background); }
+.pt-content-header { position: relative; padding: 15px 15px 0 15px; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px; }
+.pt-content-header h1 { margin: 0; font-size: 24px; font-weight: 400; color: var(--text-foreground); line-height: 1.1; }
+.pt-content-header h1 small { font-size: 15px; font-weight: 300; margin-left: 8px; color: var(--text-muted-foreground); }
+.pt-breadcrumb { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--text-muted-foreground); }
+.pt-breadcrumb a { color: var(--text-muted-foreground); text-decoration: none; }
+.pt-breadcrumb a:hover { color: var(--text-foreground); }
+.pt-breadcrumb .cur { color: var(--text-foreground); opacity: .7; }
+.pt-content { padding: var(--pt-gap); max-width: 1500px; margin: 0 auto; }
+
+/* ── Boxes ───────────────────────────────────────────────────────────────── */
+.pt-box { position: relative; background: var(--bg-card); border: 1px solid var(--border-border-subtle); border-top: 3px solid var(--pt-box-top); border-radius: 3px; margin-bottom: 20px; box-shadow: 0 1px 1px rgba(0,0,0,.2); }
+.pt-box-header { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px; border-bottom: 1px solid var(--border-border-subtle); }
+.pt-box-title { margin: 0; font-size: 18px; font-weight: 400; color: var(--text-foreground); display: flex; align-items: center; gap: 8px; }
+.pt-box-body { padding: 10px; }
+.pt-box-footer { padding: 10px; border-top: 1px solid var(--border-border-subtle); background: var(--bg-muted-subtle); }
+
+/* info boxes (dashboard) */
+.pt-info { display: flex; min-height: 80px; background: var(--bg-card); border: 1px solid var(--border-border-subtle); border-radius: 2px; box-shadow: 0 1px 1px rgba(0,0,0,.2); }
+.pt-info-icon { width: 80px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #fff; border-radius: 2px 0 0 2px; }
+.pt-info-icon svg { width: 34px; height: 34px; }
+.pt-info-body { flex: 1; min-width: 0; padding: 5px 10px; display: flex; flex-direction: column; justify-content: center; }
+.pt-info-text { font-size: 12px; text-transform: uppercase; color: var(--text-muted-foreground); }
+.pt-info-number { font-size: 18px; font-weight: 700; color: var(--text-foreground); }
+.pt-progress { height: 2px; background: var(--border-border); margin: 5px 0; }
+.pt-progress > div { height: 100%; background: var(--theme-500); }
+
+/* simple data table */
+.pt-table { width: 100%; border-collapse: collapse; }
+.pt-table th { text-align: left; font-weight: 700; padding: 8px; border-bottom: 2px solid var(--border-border); color: var(--text-foreground); }
+.pt-table td { padding: 8px; border-top: 1px solid var(--border-border-subtle); vertical-align: middle; }
+.pt-table tbody tr:hover { background: var(--bg-muted-subtle); }
+.pt-label { display: inline-block; padding: .2em .6em .3em; font-size: 75%; font-weight: 700; line-height: 1; color: #fff; border-radius: .25em; }
+.pt-label.success { background: #00a65a; } .pt-label.danger { background: #dd4b39; }
+
+/* ── Legacy markup inside the admin pages → AdminLTE look ────────────────── */
+.pt-admin [class~="rounded-3xl"] {
+  border-radius: 3px !important; border-top: 3px solid var(--pt-box-top) !important;
+  box-shadow: 0 1px 1px rgba(0,0,0,.2) !important; backdrop-filter: none !important;
+}
+.pt-admin [class~="rounded-3xl"] [class~="rounded-3xl"],
+.pt-admin [class~="rounded-2xl"] [class~="rounded-3xl"] { border-top-width: 1px !important; border-top-color: var(--border-border-subtle) !important; }
+.pt-admin [class~="rounded-2xl"] { border-radius: 3px !important; backdrop-filter: none !important; }
+.pt-admin [class~="rounded-xl"], .pt-admin [class~="rounded-lg"] { border-radius: 3px !important; }
+.pt-admin [class~="rounded-2xl"][class~="bg-card"], .pt-admin [class~="rounded-2xl"][class~="bg-card/70"] { border-top: 3px solid var(--pt-box-top) !important; }
+.pt-admin [class~="shadow-xl"], .pt-admin [class~="shadow-2xl"], .pt-admin [class~="shadow-lg"], .pt-admin [class~="shadow-md"] { box-shadow: 0 1px 1px rgba(0,0,0,.2) !important; }
+.pt-admin [class~="backdrop-blur-xl"], .pt-admin [class~="backdrop-blur-2xl"], .pt-admin [class~="backdrop-blur-sm"] { backdrop-filter: none !important; }
+.pt-admin [class~="blur-3xl"], .pt-admin [class~="blur-[70px]"] { display: none !important; } /* decorative glows */
+
+/* box padding / spacing: 10-15px like AdminLTE instead of the roomy 24-32px */
+.pt-admin [class~="p-6"], .pt-admin [class~="md:p-8"], .pt-admin [class~="p-5"], .pt-admin [class~="md:p-6"] { padding: 12px 15px !important; }
+.pt-admin [class~="mb-8"] { margin-bottom: 20px !important; }
+.pt-admin [class~="mb-6"] { margin-bottom: 15px !important; }
+.pt-admin [class~="mt-8"] { margin-top: 20px !important; }
+.pt-admin [class~="mt-10"] { margin-top: 20px !important; }
+.pt-admin [class~="pb-6"] { padding-bottom: 10px !important; }
+.pt-admin [class~="space-y-6"] > * + * { margin-top: 15px !important; }
+.pt-admin [class~="gap-6"] { gap: 15px !important; }
+
+/* section titles become box titles */
+.pt-admin h2[class~="text-xl"], .pt-admin h3[class~="text-xl"] { font-size: 18px !important; font-weight: 400 !important; }
+.pt-admin h2[class~="text-xl"][class~="mb-6"], .pt-admin h2[class~="text-xl"][class~="mb-4"] { padding-bottom: 10px; border-bottom: 1px solid var(--border-border-subtle); }
+.pt-admin h1, .pt-admin h2, .pt-admin h3 { letter-spacing: 0; }
+
+/* form controls: flat, 34px high, accent border on focus */
+.pt-admin input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+.pt-admin select, .pt-admin textarea { border-radius: 2px !important; box-shadow: none !important; }
+.pt-admin input:not([type="checkbox"]):not([type="radio"]):focus, .pt-admin select:focus, .pt-admin textarea:focus { border-color: var(--theme-500) !important; }
+.pt-admin label { font-weight: 600; }
+.pt-admin button { border-radius: 3px; }
+.pt-admin button[class~="font-semibold"], .pt-admin a[class~="font-semibold"] { font-weight: 500; }
+
+/* tables */
+.pt-admin table { border-collapse: collapse; }
+.pt-admin table th { font-weight: 700 !important; text-transform: none !important; letter-spacing: 0 !important; padding: 8px !important; border-bottom: 2px solid var(--border-border); }
+.pt-admin table td { padding: 8px !important; border-top: 1px solid var(--border-border-subtle); }
+
+/* ── Small screens: sidebar slides over the content ──────────────────────── */
+@media (max-width: 1023px) {
+  .pt-brand { width: auto; min-width: 0; padding: 0 12px; font-size: 17px; }
+  .pt-toggle { display: inline-flex !important; }
+  .pt-nav-text { display: none; }
+  .pt-sidebar { position: absolute; top: 0; bottom: 0; left: 0; z-index: 25; transform: translateX(-100%); transition: transform .2s ease; }
+  .pt-sidebar.open { transform: translateX(0); }
+  .pt-backdrop.open { display: block; position: absolute; inset: 0; z-index: 20; background: rgba(0,0,0,.55); }
+  .pt-breadcrumb { display: none; }
+}
